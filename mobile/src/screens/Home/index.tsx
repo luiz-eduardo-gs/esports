@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { Image, View, FlatList } from "react-native";
+import { FlatList, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { API_URL } from "../../@shared/ip-config";
 import logoImg from "../../assets/logo-nlw-esports.png";
 import { Background } from "../../components/Background";
 import { GameCard, GameCardProps } from "../../components/GameCard";
@@ -13,7 +14,7 @@ export function Home() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    fetch("http://192.168.0.38:3333/games")
+    fetch(`${API_URL}/games`)
       .then((response) => response.json())
       .then((data) => {
         setGames(data);

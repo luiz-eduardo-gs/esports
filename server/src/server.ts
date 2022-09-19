@@ -1,6 +1,6 @@
-import express from "express";
-import cors from "cors";
 import { PrismaClient } from "@prisma/client";
+import cors from "cors";
+import express from "express";
 import { convertHourStringToMinutes } from "./utils/convert-hour-string-to-minutes";
 import { convertMinutesToHourString } from "./utils/convert-minutes-to-hour-string";
 
@@ -62,6 +62,7 @@ app.get("/games/:id/ads", async (req, res) => {
       useVoiceChannel: true,
       hourStart: true,
       hourEnd: true,
+      yearsPlaying: true,
     },
     where: {
       gameId,
